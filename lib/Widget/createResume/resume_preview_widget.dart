@@ -46,9 +46,7 @@ class ResumePreview extends StatelessWidget {
 
         Obx(() {
           return //Resume Data View
-          isMobile
-              ? buildContainerItem()
-              : Expanded(child: buildContainerItem());
+          isMobile ? buildContainerItem() : buildContainerItem();
         }),
       ],
     );

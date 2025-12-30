@@ -42,6 +42,7 @@ class CreateResumeScreen extends StatelessWidget {
                     ? SingleChildScrollView(
                         child: Column(
                           children: [
+                            //Circle Container Widget
                             _buildworkinPageWidget(isMobile),
 
                             _buildCommonTextFields(count),
@@ -181,67 +182,16 @@ class CreateResumeScreen extends StatelessWidget {
 
   Widget _buildCommonTextFields(int count) {
     final selectedIndex = controller.selectedTempIndex.value;
-    return (selectedIndex == null)
-        ? Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              //Header Resume Part
-              if (count == 0) ResumeHeaderFormWidget(controller: controller),
 
-              //Summary Resume Part
-              if (count == 1) ResumeSummaryWidget(controller: controller),
-
-              //Job Resume Part
-              if (count == 2) ResumeJobFormWidget(controller: controller),
-
-              //Education Resume Part
-              if (count == 3) ResumeEducationFormWidget(controller: controller),
-
-              //Project Resume Part
-              if (count == 4) ResumeProjectFormWidget(controller: controller),
-
-              //Skills Resume Part
-              if (count == 5) ResumeSkillsWidget(controller: controller),
-
-              //Language Resume Part
-              if (count == 6) ResumeLangFormWidget(controller: controller),
-
-              //Socia Media Resume Part
-              if (count == 7) ResumeSocialMediaWidget(controller: controller),
-
-              SizedBox(height: 20.h),
-            ],
-          )
-        : Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              //Header Resume Part
-              if (count == 0) ResumeHeaderFormWidget(controller: controller),
-
-              //Summary Resume Part
-              if (count == 1) ResumeSummaryWidget(controller: controller),
-
-              //Skills Resume Part
-              if (count == 2) ResumeSkillsWidget(controller: controller),
-
-              //Job Resume Part
-              if (count == 3) ResumeJobFormWidget(controller: controller),
-
-              //Education Resume Part
-              if (count == 4) ResumeEducationFormWidget(controller: controller),
-
-              //Project Resume Part
-              if (count == 5) ResumeProjectFormWidget(controller: controller),
-
-              //Language Resume Part
-              if (count == 6) ResumeLangFormWidget(controller: controller),
-
-              //Socia Media Resume Part
-              if (count == 7) ResumeSocialMediaWidget(controller: controller),
-
-              SizedBox(height: 20.h),
-            ],
-          );
+    switch (selectedIndex) {
+      case 0:
+      case 1:
+        return firstCase(count);
+      case 2:
+        return secondCase(count);
+      default:
+        return initialCase(count);
+    }
   }
 
   Widget _buildworkinPageWidget(bool isMobile) {
@@ -368,5 +318,105 @@ class CreateResumeScreen extends StatelessWidget {
         ),
       );
     });
+  }
+
+  Widget initialCase(int count) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        //Header Resume Part
+        if (count == 0) ResumeHeaderFormWidget(controller: controller),
+
+        //Summary Resume Part
+        if (count == 1) ResumeSummaryWidget(controller: controller),
+
+        //Job Resume Part
+        if (count == 2) ResumeJobFormWidget(controller: controller),
+
+        //Education Resume Part
+        if (count == 3) ResumeEducationFormWidget(controller: controller),
+
+        //Project Resume Part
+        if (count == 4) ResumeProjectFormWidget(controller: controller),
+
+        //Skills Resume Part
+        if (count == 5) ResumeSkillsWidget(controller: controller),
+
+        //Language Resume Part
+        if (count == 6) ResumeLangFormWidget(controller: controller),
+
+        //Socia Media Resume Part
+        if (count == 7) ResumeSocialMediaWidget(controller: controller),
+
+        SizedBox(height: 20.h),
+      ],
+    );
+  }
+
+  Widget firstCase(int count) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        //Header Resume Part
+        if (count == 0) ResumeHeaderFormWidget(controller: controller),
+
+        //Summary Resume Part
+        if (count == 1) ResumeSummaryWidget(controller: controller),
+
+        //Skills Resume Part
+        if (count == 2) ResumeSkillsWidget(controller: controller),
+
+        //Job Resume Part
+        if (count == 3) ResumeJobFormWidget(controller: controller),
+
+        //Education Resume Part
+        if (count == 4) ResumeEducationFormWidget(controller: controller),
+
+        //Project Resume Part
+        if (count == 5) ResumeProjectFormWidget(controller: controller),
+
+        //Language Resume Part
+        if (count == 6) ResumeLangFormWidget(controller: controller),
+
+        //Socia Media Resume Part
+        if (count == 7) ResumeSocialMediaWidget(controller: controller),
+
+        SizedBox(height: 20.h),
+      ],
+    );
+  }
+
+  Widget secondCase(int count) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        //Header Resume Part
+        if (count == 0) ResumeHeaderFormWidget(controller: controller, flag: 1),
+
+        //Summary Resume Part
+        if (count == 1) ResumeSummaryWidget(controller: controller),
+
+        //Skills Resume Part
+        if (count == 2) ResumeSkillsWidget(controller: controller, flag: 1),
+
+        //Job Resume Part
+        if (count == 3) ResumeJobFormWidget(controller: controller),
+
+        //Project Resume Part
+        if (count == 4)
+          ResumeProjectFormWidget(controller: controller, flag: 1),
+
+        //Education Resume Part
+        if (count == 5) ResumeEducationFormWidget(controller: controller),
+
+        //Language Resume Part
+        if (count == 6) ResumeLangFormWidget(controller: controller),
+
+        //Socia Media Resume Part
+        if (count == 7) ResumeSocialMediaWidget(controller: controller),
+
+        SizedBox(height: 20.h),
+      ],
+    );
   }
 }

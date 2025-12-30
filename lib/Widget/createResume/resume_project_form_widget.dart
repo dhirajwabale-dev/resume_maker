@@ -6,9 +6,14 @@ import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class ResumeProjectFormWidget extends StatelessWidget {
-  const ResumeProjectFormWidget({super.key, required this.controller});
+  const ResumeProjectFormWidget({
+    super.key,
+    required this.controller,
+    this.flag = 0,
+  });
 
   final CreateResumeController controller;
+  final int? flag;
 
   @override
   Widget build(BuildContext context) {
@@ -37,22 +42,26 @@ class ResumeProjectFormWidget extends StatelessWidget {
                   label: "Project Name",
                   textController: controller.projectNameController.value,
                 ),
-                _textField(
-                  label: "Duration",
-                  textController: controller.durationController.value,
-                ),
+
+                if (flag == 0)
+                  _textField(
+                    label: "Duration",
+                    textController: controller.durationController.value,
+                  ),
                 _textField(
                   label: "Environment/Technology",
                   textController: controller.environmentController.value,
                 ),
-                _textField(
-                  label: "Overview",
-                  textController: controller.overviewController.value,
-                ),
-                _textFieldForMaxLine(
-                  label: "Features",
-                  textController: controller.fetureController.value,
-                ),
+                if (flag == 0)
+                  _textField(
+                    label: "Overview",
+                    textController: controller.overviewController.value,
+                  ),
+                if (flag == 0)
+                  _textFieldForMaxLine(
+                    label: "Features",
+                    textController: controller.fetureController.value,
+                  ),
                 _textFieldForMaxLine(
                   label: "Rules & Responsibility",
                   textController: controller.rulesController.value,

@@ -20,7 +20,7 @@ class CreateResumeController extends GetxController {
   final firstNameController = TextEditingController().obs;
   final lastNameController = TextEditingController().obs;
   final addressController = TextEditingController().obs;
-  final userCountryController = TextEditingController().obs;
+  final userDesignationController = TextEditingController().obs;
   final mobileController = TextEditingController().obs;
   final emailController = TextEditingController().obs;
   final pincodeController = TextEditingController().obs;
@@ -35,6 +35,8 @@ class CreateResumeController extends GetxController {
 
   //Skill var
   final skillController = TextEditingController().obs;
+  final toolController = TextEditingController().obs;
+  final otherSkillsController = TextEditingController().obs;
 
   //Langauge
   final languageController = TextEditingController().obs;
@@ -97,13 +99,15 @@ class CreateResumeController extends GetxController {
     firstNameController.value.clear();
     lastNameController.value.clear();
     addressController.value.clear();
-    userCountryController.value.clear();
+    userDesignationController.value.clear();
     mobileController.value.clear();
     emailController.value.clear();
     pincodeController.value.clear();
 
     //Summay Controller
     summaryController.value.clear();
+    toolController.value.clear();
+    otherSkillsController.value.clear();
 
     //langauge
     languageController.value.clear();
@@ -137,8 +141,12 @@ class CreateResumeController extends GetxController {
   void clickOnContinue() {
     final selectedIndex = selectedTempIndex.value;
 
+    Logger.logData("Selected Index:$selectedIndex");
+
     if (selectedIndex == null) {
       initialContinueClick();
+    } else if (selectedIndex == 2) {
+      secondContinueClick();
     } else {
       firstContinueClick();
     }
@@ -164,17 +172,32 @@ class CreateResumeController extends GetxController {
   //Add Skill List Data
   void clickOnSkillAdd() {
     if (skillController.value.text.isEmpty) {
-      commonDialog("Please Enter valid Data");
+      commonDialog("Please Enter Skill");
+      return;
+    }
+
+    if (selectedTempIndex.value == 2 && toolController.value.text.isEmpty) {
+      commonDialog("Please Add Using tools");
+      return;
+    }
+
+    if (selectedTempIndex.value == 2 &&
+        otherSkillsController.value.text.isEmpty) {
+      commonDialog("Please Add Other technology");
       return;
     }
 
     final param = {
       "skill": skillController.value.text.trim(),
       "proficiency": proficiencyCount.value,
+      "tools": toolController.value.text.trim(),
+      "other_skills": otherSkillsController.value.text.trim(),
     };
     skillsList.add(param);
 
     skillController.value.clear();
+    toolController.value.clear();
+    otherSkillsController.value.clear();
     proficiencyCount.value = 0;
   }
 
@@ -223,6 +246,32 @@ class CreateResumeController extends GetxController {
 
     if (emailController.value.text.isEmpty) {
       commonDialog("Please enter Email ID");
+      return false;
+    }
+
+    if (pincodeController.value.text.length != 6) {
+      commonDialog("Please enter valid Pin Code");
+      return false;
+    }
+
+    if (mobileController.value.text.length != 10) {
+      commonDialog("Please enter valid mobile Number");
+      return false;
+    }
+
+    final firstItem = mobileController.value.text.trim().substring(0, 1);
+
+    if (firstItem != "9" && firstItem != "8" && firstItem != "7") {
+      commonDialog("Please enter valid mobile Number");
+      return false;
+    }
+
+    final emailRegex = RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+    );
+
+    if (!emailRegex.hasMatch(emailController.value.text.trim())) {
+      commonDialog("Please enter valid email Id");
       return false;
     }
 
@@ -460,22 +509,23 @@ class CreateResumeController extends GetxController {
       return;
     }
 
-    if (durationController.value.text.isEmpty) {
+    if (selectedTempIndex.value != 2 && durationController.value.text.isEmpty) {
       commonDialog("Please Enter duration of Project");
       return;
     }
 
-    if (environmentController.value.text.isEmpty) {
+    if (selectedTempIndex.value != 2 &&
+        environmentController.value.text.isEmpty) {
       commonDialog("Please Enter Used Technology");
       return;
     }
 
-    if (overviewController.value.text.isEmpty) {
+    if (selectedTempIndex.value != 2 && overviewController.value.text.isEmpty) {
       commonDialog("Please Enter at least one overview.");
       return;
     }
 
-    if (fetureController.value.text.isEmpty) {
+    if (selectedTempIndex.value != 2 && fetureController.value.text.isEmpty) {
       commonDialog("Please Enter at least one feature");
       return;
     }
@@ -758,6 +808,70 @@ class CreateResumeController extends GetxController {
       if (!forProjectCount()) return;
       continueCount.value++;
       return;
+    }
+
+    if (continueCount.value == 6) {
+      if (!forLangCount()) return;
+      continueCount.value++;
+    }
+
+    if (continueCount.value == 7) {
+      if (!forSocialCount()) return;
+      continueCount.value++;
+    }
+
+    if (continueCount.value > 7) {
+      isFinalSubmit.value = true;
+    }
+  }
+
+  //Common Continue For First Template
+  void secondContinueClick() {
+    if (continueCount.value == 0) {
+      if (!forInitialCount()) return;
+      continueCount.value++;
+      return;
+    }
+
+    if (continueCount.value == 1) {
+      if (!forSummaryCount()) return;
+      continueCount.value++;
+      return;
+    }
+
+    if (continueCount.value == 2) {
+      if (skillController.value.text.isEmpty) {
+        commonDialog("Please enter Technology");
+        return;
+      }
+
+      if (toolController.value.text.isEmpty) {
+        commonDialog("Please enter Tools");
+        return;
+      }
+
+      if (otherSkillsController.value.text.isEmpty) {
+        commonDialog("Please enter Other technology");
+        return;
+      }
+      continueCount.value++;
+      return;
+    }
+
+    if (continueCount.value == 3) {
+      if (!forJobCount()) return;
+      continueCount.value++;
+    }
+
+    if (continueCount.value == 4) {
+      if (!forProjectCount()) return;
+      continueCount.value++;
+      return;
+    }
+
+    if (continueCount.value == 5) {
+      if (!forEducationCount()) return;
+      continueCount.value++;
     }
 
     if (continueCount.value == 6) {

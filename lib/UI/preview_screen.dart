@@ -19,7 +19,11 @@ class PreviewScreen extends StatelessWidget {
         body: Column(
           children: [
             //Resume Preview
-            Expanded(child: ResumePreview(controller: controller)),
+            Expanded(
+              child: SingleChildScrollView(
+                child: ResumePreview(controller: controller),
+              ),
+            ),
             Padding(
               padding: EdgeInsets.all(10.r),
               child: Row(

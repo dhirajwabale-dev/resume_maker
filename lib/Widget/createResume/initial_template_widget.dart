@@ -139,19 +139,10 @@ class InitialTemplateWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: Get.width,
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-              decoration: BoxDecoration(color: controller.selectedColor.value),
-              child: buildCommonText(
-                "Summary",
-                fontSize: 16.sp,
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            buildTitleContainer(
+              color: controller.selectedColor.value,
+              title: "Summary",
             ),
-
-            SizedBox(height: 4.h),
 
             SelectableText(
               summary.isNotEmpty
@@ -176,19 +167,10 @@ class InitialTemplateWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: Get.width,
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-              decoration: BoxDecoration(color: controller.selectedColor.value),
-              child: buildCommonText(
-                "Skills",
-                fontSize: 16.sp,
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            buildTitleContainer(
+              color: controller.selectedColor.value,
+              title: "Skills",
             ),
-
-            SizedBox(height: 10.h),
 
             ListView.builder(
               shrinkWrap: true,
@@ -246,19 +228,10 @@ class InitialTemplateWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: Get.width,
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-              decoration: BoxDecoration(color: controller.selectedColor.value),
-              child: buildCommonText(
-                "Experience",
-                fontSize: 16.sp,
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            buildTitleContainer(
+              color: controller.selectedColor.value,
+              title: "Experience",
             ),
-
-            SizedBox(height: 4.h),
 
             ListView.builder(
               shrinkWrap: true,
@@ -341,19 +314,10 @@ class InitialTemplateWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: Get.width,
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-              decoration: BoxDecoration(color: controller.selectedColor.value),
-              child: buildCommonText(
-                "Education",
-                fontSize: 16.sp,
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            buildTitleContainer(
+              color: controller.selectedColor.value,
+              title: "Education",
             ),
-
-            SizedBox(height: 4.h),
 
             ListView.builder(
               shrinkWrap: true,
@@ -428,19 +392,10 @@ class InitialTemplateWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: Get.width,
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-              decoration: BoxDecoration(color: controller.selectedColor.value),
-              child: buildCommonText(
-                "Project Experience",
-                fontSize: 16.sp,
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            buildTitleContainer(
+              color: controller.selectedColor.value,
+              title: "Projects",
             ),
-
-            SizedBox(height: 4.h),
 
             ListView.builder(
               shrinkWrap: true,
@@ -597,19 +552,10 @@ class InitialTemplateWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: Get.width,
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-              decoration: BoxDecoration(color: controller.selectedColor.value),
-              child: buildCommonText(
-                "Langauge",
-                fontSize: 16.sp,
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            buildTitleContainer(
+              color: controller.selectedColor.value,
+              title: "Langauge",
             ),
-
-            SizedBox(height: 4.h),
 
             ListView.builder(
               shrinkWrap: true,
@@ -666,19 +612,10 @@ class InitialTemplateWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: Get.width,
-              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-              decoration: BoxDecoration(color: controller.selectedColor.value),
-              child: buildCommonText(
-                "Social Media",
-                fontSize: 16.sp,
-                color: AppColors.white,
-                fontWeight: FontWeight.bold,
-              ),
+            buildTitleContainer(
+              color: controller.selectedColor.value,
+              title: "Social Media",
             ),
-
-            SizedBox(height: 4.h),
 
             ListView.builder(
               shrinkWrap: true,

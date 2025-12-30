@@ -18,7 +18,7 @@ class ResumeSummaryWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           buildCommonText(
-            "Summary",
+            "Professional Summary",
             fontSize: 32.sp,
             fontWeight: FontWeight.bold,
           ),

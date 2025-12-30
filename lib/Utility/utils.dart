@@ -209,11 +209,30 @@ Widget title(String text, {Color? color}) {
     children: [
       buildCommonTextWithFont(
         text,
-        fontSize: 16.sp,
+        fontSize: 18.sp,
         fontWeight: FontWeight.bold,
         color: color ?? AppColors.black,
       ),
       Divider(thickness: 3, color: color ?? AppColors.black),
+    ],
+  );
+}
+
+Widget buildTitleContainer({required String title, required Color color}) {
+  return Column(
+    children: [
+      Container(
+        width: Get.width,
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
+        decoration: BoxDecoration(color: color),
+        child: buildCommonText(
+          title,
+          fontSize: 16.sp,
+          color: AppColors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+
       SizedBox(height: 4.h),
     ],
   );

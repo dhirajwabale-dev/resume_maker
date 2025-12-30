@@ -7,9 +7,14 @@ import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class ResumeHeaderFormWidget extends StatelessWidget with Validation {
-  const ResumeHeaderFormWidget({super.key, required this.controller});
+  const ResumeHeaderFormWidget({
+    super.key,
+    required this.controller,
+    this.flag = 0,
+  });
 
   final CreateResumeController controller;
+  final int? flag;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,7 @@ class ResumeHeaderFormWidget extends StatelessWidget with Validation {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             buildCommonText(
-              "Let’s start with your header",
+              "Let's start with your header",
 
               fontSize: 32.sp,
               fontWeight: FontWeight.bold,
@@ -50,10 +55,12 @@ class ResumeHeaderFormWidget extends StatelessWidget with Validation {
                     label: "Address",
                     contro: controller.addressController.value,
                   ),
-                  _textField(
-                    label: "Country",
-                    contro: controller.userCountryController.value,
-                  ),
+
+                  if (flag == 1)
+                    _textField(
+                      label: "Designation",
+                      contro: controller.userDesignationController.value,
+                    ),
 
                   pincodeTextField(),
 
