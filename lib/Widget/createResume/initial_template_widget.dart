@@ -81,7 +81,7 @@ class InitialTemplateWidget extends StatelessWidget {
                   child: buildCommonText(
                     (firstName.isNotEmpty && lastName.isNotEmpty)
                         ? "${firstName.substring(0, 1).toUpperCase()}${lastName.substring(0, 1).toUpperCase()}"
-                        : "MN",
+                        : "NN",
                     fontSize: 16.sp,
                     color: AppColors.white,
                   ),
@@ -106,7 +106,7 @@ class InitialTemplateWidget extends StatelessWidget {
                       buildCommonText(
                         (address.isNotEmpty && pincode.isNotEmpty)
                             ? "$address, Pin Code - $pincode"
-                            : "At Post Madhewadgaon, Tal-Shrigonda, Dist-Ahmednagar, pin-413726",
+                            : "At Post Kolhar, Tal-Rahata, Dist-Ahmednagar, pin-410713",
                         color: AppColors.white,
                       ),
 
@@ -116,7 +116,7 @@ class InitialTemplateWidget extends StatelessWidget {
                       ),
 
                       buildCommonText(
-                        email.isNotEmpty ? email : "dhirajwable212@gmail.com",
+                        email.isNotEmpty ? email : "nikitanibegmail.com",
                         color: AppColors.white,
                       ),
                     ],

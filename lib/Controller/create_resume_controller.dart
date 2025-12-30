@@ -69,12 +69,12 @@ class CreateResumeController extends GetxController {
   final rulesController = TextEditingController().obs;
 
   // List
-  final skillsList = <Map<String, dynamic>>[].obs;
-  final jobList = <Map<String, dynamic>>[].obs;
-  final educationList = <Map<String, dynamic>>[].obs;
-  final languageList = <Map<String, dynamic>>[].obs;
-  final socialDataList = <String>[].obs;
-  final projectList = <Map<String, dynamic>>[].obs;
+  final skillsList = skillListData.obs;
+  final jobList = jobListData.obs;
+  final educationList = educationListData.obs;
+  final languageList = langListData.obs;
+  final socialDataList = socialListData.obs;
+  final projectList = priojectListData.obs;
 
   final isLoading = false.obs;
 
@@ -187,6 +187,8 @@ class CreateResumeController extends GetxController {
       return;
     }
 
+    skillsList.clear();
+
     final param = {
       "skill": skillController.value.text.trim(),
       "proficiency": proficiencyCount.value,
@@ -207,6 +209,8 @@ class CreateResumeController extends GetxController {
       commonDialog("Please Enter valid Data");
       return;
     }
+
+    languageList.clear();
 
     final param = {
       "lang": languageController.value.text,
@@ -395,6 +399,8 @@ class CreateResumeController extends GetxController {
       return;
     }
 
+    jobList.clear();
+
     final param = {
       "jobtitle": jobTitleController.value.text.trim(),
       "employerName": employerController.value.text.trim(),
@@ -441,6 +447,8 @@ class CreateResumeController extends GetxController {
       return;
     }
 
+    educationList.clear();
+
     final param = {
       "degree": degreeController.value.text.trim(),
       "university": univercityController.value.text.trim(),
@@ -464,6 +472,8 @@ class CreateResumeController extends GetxController {
       commonDialog("Please Enter valid Data");
       return;
     }
+
+    socialDataList.clear();
 
     socialDataList.add(socialTextController.value.text.trim());
 
@@ -534,6 +544,8 @@ class CreateResumeController extends GetxController {
       commonDialog("Please Enter at least one Responsibility");
       return;
     }
+
+    projectList.clear();
 
     final param = {
       "projectName": projectNameController.value.text.trim(),

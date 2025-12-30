@@ -104,7 +104,7 @@ class ThirdTemplateWidget extends StatelessWidget {
                   color: controller.selectedColor.value,
                 ),
                 buildCommonTextWithFont(
-                  email.isNotEmpty ? email : "dhirajwable212@gmail.com",
+                  email.isNotEmpty ? email : "nikitanibe@gmail.com",
                 ),
               ],
             ),
@@ -112,7 +112,7 @@ class ThirdTemplateWidget extends StatelessWidget {
             buildCommonTextWithFont(
               (address.isNotEmpty && pincode.isNotEmpty)
                   ? "$address, Pin Code - $pincode"
-                  : "At Post Madhewadgaon, Tal-Shrigonda, Dist-Ahmednagar,PinCodes-413726",
+                  : "At Post-Kolhar, Tal-Rahata, Dist-Ahmednagar,PinCodes-410714",
               textAlign: TextAlign.center,
             ),
           ],

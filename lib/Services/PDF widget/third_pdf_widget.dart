@@ -50,7 +50,9 @@ pw.Widget buildHeader(
     child: pw.Column(
       children: [
         pw.Text(
-          "$firstName $lastName",
+          (firstName.isNotEmpty && lastName.isNotEmpty)
+              ? "$firstName $lastName"
+              : "Nikita Nibe",
           style: pw.TextStyle(
             color: PdfColors.black,
             fontSize: 22,
@@ -59,27 +61,30 @@ pw.Widget buildHeader(
           ),
         ),
         pw.Text(
-          designation,
+          designation.isNotEmpty ? designation : "Software Developer",
           style: pw.TextStyle(color: PdfColors.black, font: font),
         ),
+
         pw.Row(
           mainAxisAlignment: pw.MainAxisAlignment.center,
           children: [
-            pw.Icon(const pw.IconData(0xe126), color: pdfColor),
             pw.Text(
-              mobile,
+              mobile.isNotEmpty ? "📞 mobile" : "📞 9922856963",
               style: pw.TextStyle(color: PdfColors.black, font: font),
             ),
             pw.SizedBox(width: 6),
-            pw.Icon(const pw.IconData(0xe126), color: pdfColor),
+
             pw.Text(
-              email,
+              email.isNotEmpty ? "✉️ $email" : "✉️ nikitanibe@gmail.com",
               style: pw.TextStyle(color: PdfColors.black, font: font),
             ),
           ],
         ),
         pw.Text(
-          "$address, Pin-Code :$pincode",
+          (address.isNotEmpty && pincode.isNotEmpty)
+              ? "$address, Pin Code - $pincode"
+              : "At Post-Kolhar, Tal-Rahata, Dist-Ahmednagar,PinCodes-410714",
+
           style: pw.TextStyle(color: PdfColors.black, font: font),
         ),
       ],
@@ -93,13 +98,19 @@ pw.Widget sectionTitle(
   PdfColor pdfColor,
   pw.Font font,
 ) {
+  final summary = c.summaryController.value.text.trim();
   return pw.Column(
     crossAxisAlignment: pw.CrossAxisAlignment.start,
     children: [
       pw.SizedBox(height: 18),
       _title("Summary", pdfColor, font),
       pw.SizedBox(height: 8),
-      pw.Text(c.summaryController.value.text, style: pw.TextStyle(font: font)),
+      pw.Text(
+        summary.isNotEmpty
+            ? summary
+            : "Flutter Developer with 3 years of hands-on experience in designing, developing, and deploying high-performance mobile applications for Android and iOS. Proficient in Dart, Flutter framework, and modern app architecture with strong expertise in state management, API integration, Firebase services, and UI/UX optimization. Experienced in full app lifecycle—from requirement analysis and development to Play Store deployment and maintenance.",
+        style: pw.TextStyle(font: font),
+      ),
     ],
   );
 }

@@ -7,7 +7,11 @@ import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class ResumeSkillsWidget extends StatelessWidget {
-  const ResumeSkillsWidget({super.key, required this.controller, this.flag});
+  const ResumeSkillsWidget({
+    super.key,
+    required this.controller,
+    this.flag = 0,
+  });
 
   final CreateResumeController controller;
   //If This flag ==0 then Initial Theme

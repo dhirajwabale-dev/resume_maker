@@ -18,6 +18,7 @@ import '../Widget/createResume/resume_skills_widget.dart';
 import '../Widget/createResume/resume_social_media_widget.dart';
 import '../Widget/createResume/resume_summary_widget.dart';
 import '../Widget/general_safe_area_widget.dart';
+import '../Widget/logger.dart';
 import '../Widget/progress_indicator_widget.dart';
 
 class CreateResumeScreen extends StatelessWidget {
@@ -182,6 +183,7 @@ class CreateResumeScreen extends StatelessWidget {
 
   Widget _buildCommonTextFields(int count) {
     final selectedIndex = controller.selectedTempIndex.value;
+    Logger.printData("👉 Selected Index : $selectedIndex");
 
     switch (selectedIndex) {
       case 0:

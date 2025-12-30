@@ -17,7 +17,7 @@ Widget buildCommonText(
   FontWeight? fontWeight,
   TextAlign? textAlign,
 }) {
-  return Text(
+  return SelectableText(
     text,
     textAlign: textAlign ?? TextAlign.start,
     style: TextStyle(
@@ -36,7 +36,7 @@ Widget buildCommonTextWithFont(
   FontWeight? fontWeight,
   TextAlign? textAlign,
 }) {
-  return Text(
+  return SelectableText(
     text,
     textAlign: textAlign ?? TextAlign.start,
     style: GoogleFonts.adamina(
@@ -237,3 +237,97 @@ Widget buildTitleContainer({required String title, required Color color}) {
     ],
   );
 }
+
+List<Map<String, dynamic>> skillListData = [
+  {
+    "skill": "Java",
+    "proficiency": 3,
+    "tools": "VS code",
+    "other_skills": "Node Js",
+  },
+  {
+    "skill": "Flutter",
+    "proficiency": 4,
+    "tools": "VS code",
+    "other_skills": "Node Js",
+  },
+  {
+    "skill": "Mysql",
+    "proficiency": 3,
+    "tools": "VS code",
+    "other_skills": "Node Js",
+  },
+];
+
+List<Map<String, dynamic>> jobListData = [
+  {
+    "jobtitle": "Software Developer",
+    "employerName": "Accenture",
+    "city": "Pune",
+    "details":
+        "I am a Flutter Developer with 3 years of professional experience, currently working with Accenture, where I contribute to building scalable, high-performance mobile applications for enterprise-level clients.",
+    "fromDate": DateTime(2024, 1, 7, 17, 30),
+    "toDate": DateTime(2025, 12, 7, 17, 30),
+  },
+  {
+    "jobtitle": "Software Developer",
+    "employerName": "Intouch Consumer care solution",
+    "city": "Pune",
+    "details":
+        "I am a Flutter Developer with 3 years of professional experience, currently working with Accenture, where I contribute to building scalable, high-performance mobile applications for enterprise-level clients.",
+    "fromDate": DateTime(2024, 1, 7, 17, 30),
+    "toDate": DateTime(2025, 12, 7, 17, 30),
+  },
+];
+
+List<Map<String, dynamic>> priojectListData = [
+  {
+    "projectName": "Bussiness App",
+    "duration": "3 Months",
+    "technology": "Flutter SDK",
+    "overview":
+        "Flutter Developer with 3 years of experience at Accenture, specializing in cross-platform mobile application development using Flutter and Dart.",
+    "feature":
+        "1.mplemented complex UI designs, dashboards, and business workflows.\n2.Integrated REST APIs, Firebase services, and real-time data handling.\n3.Used GetX for efficient state management and app architecture",
+    "rules":
+        "1.Design, develop, and maintain cross-platform mobile applications using Flutter and Dart for Android and iOS platforms.\n2.Translate business requirements and UI/UX designs into high-quality, scalable mobile applications.\n3.Implement state management using frameworks such as GetX to ensure efficient data flow and performance.\n4.Integrate RESTful APIs, handle JSON parsing, and manage asynchronous operations.",
+  },
+  {
+    "projectName": "Bussiness App",
+    "duration": "3 Months",
+    "technology": "Flutter SDK",
+    "overview":
+        "Flutter Developer with 3 years of experience at Accenture, specializing in cross-platform mobile application development using Flutter and Dart.",
+    "feature":
+        "1.mplemented complex UI designs, dashboards, and business workflows.\n2.Integrated REST APIs, Firebase services, and real-time data handling.\n3.Used GetX for efficient state management and app architecture",
+    "rules":
+        "1.Design, develop, and maintain cross-platform mobile applications using Flutter and Dart for Android and iOS platforms.\n2.Translate business requirements and UI/UX designs into high-quality, scalable mobile applications.\n3.Implement state management using frameworks such as GetX to ensure efficient data flow and performance.\n4.Integrate RESTful APIs, handle JSON parsing, and manage asynchronous operations.",
+  },
+];
+
+List<Map<String, dynamic>> educationListData = [
+  {
+    "degree": "Mobile Computing",
+    "university": "C-DAC",
+    "city": "Pune",
+    "startDate": DateTime(2022, 9, 7, 17, 30),
+    "endDate": DateTime(2023, 3, 7, 17, 30),
+  },
+  {
+    "degree": "Msc",
+    "university": "Pune University",
+    "city": "Pune",
+    "startDate": DateTime(2017, 6, 7, 17, 30),
+    "endDate": DateTime(2019, 6, 7, 17, 30),
+  },
+];
+
+List<Map<String, dynamic>> langListData = [
+  {"lang": "English", "proficiency": 4},
+  {"lang": "Marathi", "proficiency": 5},
+];
+
+List<String> socialListData = [
+  "https://biomakerapp.web.app",
+  "https://resumemaker-a298f.web.app",
+];
