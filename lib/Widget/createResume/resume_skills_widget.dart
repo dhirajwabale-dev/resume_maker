@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 
 import '../../Controller/create_resume_controller.dart';
 import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class ResumeSkillsWidget extends StatelessWidget {
-  const ResumeSkillsWidget({
-    super.key,
-    required this.controller,
-    this.flag = 0,
-  });
+  ResumeSkillsWidget({super.key, this.flag = 0});
 
-  final CreateResumeController controller;
   //If This flag ==0 then Initial Theme
   final int? flag;
+
+  final controller = Get.find<CreateResumeController>();
 
   @override
   Widget build(BuildContext context) {

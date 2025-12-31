@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../Controller/create_resume_controller.dart';
 import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class ResumeSocialMediaWidget extends StatelessWidget {
-  const ResumeSocialMediaWidget({super.key, required this.controller});
+  ResumeSocialMediaWidget({super.key});
 
-  final CreateResumeController controller;
+  final controller = Get.find<CreateResumeController>();
 
   @override
   Widget build(BuildContext context) {

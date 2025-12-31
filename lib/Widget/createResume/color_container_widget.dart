@@ -7,9 +7,9 @@ import '../../Controller/create_resume_controller.dart';
 import '../../Utility/app_color.dart';
 
 class ColorContainerWidget extends StatelessWidget {
-  const ColorContainerWidget({super.key, required this.controller});
+  ColorContainerWidget({super.key});
 
-  final CreateResumeController controller;
+  final controller = Get.find<CreateResumeController>();
 
   @override
   Widget build(BuildContext context) {

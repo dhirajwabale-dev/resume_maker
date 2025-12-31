@@ -7,9 +7,9 @@ import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class ResumeLangFormWidget extends StatelessWidget {
-  const ResumeLangFormWidget({super.key, required this.controller});
+  ResumeLangFormWidget({super.key});
 
-  final CreateResumeController controller;
+  final controller = Get.find<CreateResumeController>();
 
   @override
   Widget build(BuildContext context) {

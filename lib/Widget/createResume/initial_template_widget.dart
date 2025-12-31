@@ -8,9 +8,9 @@ import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class InitialTemplateWidget extends StatelessWidget {
-  const InitialTemplateWidget({super.key, required this.controller});
+  InitialTemplateWidget({super.key});
 
-  final CreateResumeController controller;
+  final controller = Get.find<CreateResumeController>();
 
   @override
   Widget build(BuildContext context) {

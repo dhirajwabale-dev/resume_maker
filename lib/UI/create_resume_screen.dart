@@ -66,11 +66,7 @@ class CreateResumeScreen extends StatelessWidget {
                                   (controller.isFinalSubmit.value)
                                       ? ElevatedButton(
                                           onPressed: () {
-                                            Get.to(
-                                              () => PreviewScreen(
-                                                controller: controller,
-                                              ),
-                                            );
+                                            Get.to(() => PreviewScreen());
                                           },
                                           child: Text("preview"),
                                         )
@@ -90,7 +86,7 @@ class CreateResumeScreen extends StatelessWidget {
                                 horizontal: 10.w,
                                 vertical: 8.h,
                               ),
-                              child: ResumePreview(controller: controller),
+                              child: ResumePreview(),
                             ),
 
                             SizedBox(height: 12.h),
@@ -122,9 +118,7 @@ class CreateResumeScreen extends StatelessWidget {
                                         //RIGHT SIDE – LIVE PREVIEW
                                         Expanded(
                                           flex: 6,
-                                          child: ResumePreview(
-                                            controller: controller,
-                                          ),
+                                          child: ResumePreview(),
                                         ),
                                       ],
                                     ),
@@ -148,11 +142,7 @@ class CreateResumeScreen extends StatelessWidget {
                                         (controller.isFinalSubmit.value)
                                             ? ElevatedButton(
                                                 onPressed: () {
-                                                  Get.to(
-                                                    () => PreviewScreen(
-                                                      controller: controller,
-                                                    ),
-                                                  );
+                                                  Get.to(() => PreviewScreen());
                                                 },
                                                 child: Text("preview"),
                                               )
@@ -327,28 +317,28 @@ class CreateResumeScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         //Header Resume Part
-        if (count == 0) ResumeHeaderFormWidget(controller: controller),
+        if (count == 0) ResumeHeaderFormWidget(),
 
         //Summary Resume Part
-        if (count == 1) ResumeSummaryWidget(controller: controller),
+        if (count == 1) ResumeSummaryWidget(),
 
         //Job Resume Part
-        if (count == 2) ResumeJobFormWidget(controller: controller),
+        if (count == 2) ResumeJobFormWidget(),
 
         //Education Resume Part
-        if (count == 3) ResumeEducationFormWidget(controller: controller),
+        if (count == 3) ResumeEducationFormWidget(),
 
         //Project Resume Part
-        if (count == 4) ResumeProjectFormWidget(controller: controller),
+        if (count == 4) ResumeProjectFormWidget(),
 
         //Skills Resume Part
-        if (count == 5) ResumeSkillsWidget(controller: controller),
+        if (count == 5) ResumeSkillsWidget(),
 
         //Language Resume Part
-        if (count == 6) ResumeLangFormWidget(controller: controller),
+        if (count == 6) ResumeLangFormWidget(),
 
         //Socia Media Resume Part
-        if (count == 7) ResumeSocialMediaWidget(controller: controller),
+        if (count == 7) ResumeSocialMediaWidget(),
 
         SizedBox(height: 20.h),
       ],
@@ -360,28 +350,28 @@ class CreateResumeScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         //Header Resume Part
-        if (count == 0) ResumeHeaderFormWidget(controller: controller),
+        if (count == 0) ResumeHeaderFormWidget(),
 
         //Summary Resume Part
-        if (count == 1) ResumeSummaryWidget(controller: controller),
+        if (count == 1) ResumeSummaryWidget(),
 
         //Skills Resume Part
-        if (count == 2) ResumeSkillsWidget(controller: controller),
+        if (count == 2) ResumeSkillsWidget(),
 
         //Job Resume Part
-        if (count == 3) ResumeJobFormWidget(controller: controller),
+        if (count == 3) ResumeJobFormWidget(),
 
         //Education Resume Part
-        if (count == 4) ResumeEducationFormWidget(controller: controller),
+        if (count == 4) ResumeEducationFormWidget(),
 
         //Project Resume Part
-        if (count == 5) ResumeProjectFormWidget(controller: controller),
+        if (count == 5) ResumeProjectFormWidget(),
 
         //Language Resume Part
-        if (count == 6) ResumeLangFormWidget(controller: controller),
+        if (count == 6) ResumeLangFormWidget(),
 
         //Socia Media Resume Part
-        if (count == 7) ResumeSocialMediaWidget(controller: controller),
+        if (count == 7) ResumeSocialMediaWidget(),
 
         SizedBox(height: 20.h),
       ],
@@ -393,29 +383,28 @@ class CreateResumeScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         //Header Resume Part
-        if (count == 0) ResumeHeaderFormWidget(controller: controller, flag: 1),
+        if (count == 0) ResumeHeaderFormWidget(flag: 1),
 
         //Summary Resume Part
-        if (count == 1) ResumeSummaryWidget(controller: controller),
+        if (count == 1) ResumeSummaryWidget(),
 
         //Skills Resume Part
-        if (count == 2) ResumeSkillsWidget(controller: controller, flag: 1),
+        if (count == 2) ResumeSkillsWidget(flag: 1),
 
         //Job Resume Part
-        if (count == 3) ResumeJobFormWidget(controller: controller),
+        if (count == 3) ResumeJobFormWidget(),
 
         //Project Resume Part
-        if (count == 4)
-          ResumeProjectFormWidget(controller: controller, flag: 1),
+        if (count == 4) ResumeProjectFormWidget(flag: 1),
 
         //Education Resume Part
-        if (count == 5) ResumeEducationFormWidget(controller: controller),
+        if (count == 5) ResumeEducationFormWidget(),
 
         //Language Resume Part
-        if (count == 6) ResumeLangFormWidget(controller: controller),
+        if (count == 6) ResumeLangFormWidget(),
 
         //Socia Media Resume Part
-        if (count == 7) ResumeSocialMediaWidget(controller: controller),
+        if (count == 7) ResumeSocialMediaWidget(),
 
         SizedBox(height: 20.h),
       ],

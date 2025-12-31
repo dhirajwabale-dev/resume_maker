@@ -102,9 +102,8 @@ pw.Widget sectionTitle(
   return pw.Column(
     crossAxisAlignment: pw.CrossAxisAlignment.start,
     children: [
-      pw.SizedBox(height: 18),
       _title("Summary", pdfColor, font),
-      pw.SizedBox(height: 8),
+
       pw.Text(
         summary.isNotEmpty
             ? summary
@@ -140,6 +139,7 @@ pw.Widget buildExperienceWidget(
                         item["employerName"],
                         style: pw.TextStyle(
                           font: font,
+
                           fontWeight: pw.FontWeight.bold,
                         ),
                       ),
@@ -156,9 +156,9 @@ pw.Widget buildExperienceWidget(
                 pw.Text(item["jobtitle"]),
 
                 pw.Text(
-                  "${DateFormat("MM/yyyy").format(item["fromDate"])} - "
-                  "${DateFormat("MM/yyyy").format(item["toDate"])}",
-                  style: pw.TextStyle(font: font),
+                  "${DateFormat("MMM-yyyy").format(item["fromDate"])} - "
+                  "${DateFormat("MMM-yyyy").format(item["toDate"])}",
+                  style: pw.TextStyle(font: font, fontSize: 12),
                 ),
 
                 pw.SizedBox(height: 6),
@@ -222,8 +222,8 @@ pw.Widget buildEucationWidget(
                         style: pw.TextStyle(font: font),
                       ),
                       pw.Text(
-                        "${DateFormat("MM/yyyy").format(item["startDate"])} - "
-                        "${DateFormat("MM/yyyy").format(item["endDate"])}",
+                        "${DateFormat("MMM-yyyy").format(item["startDate"])} - "
+                        "${DateFormat("MMM-yyyy").format(item["endDate"])}",
                         style: pw.TextStyle(font: font),
                       ),
                     ],
@@ -495,7 +495,6 @@ pw.Widget _title(String text, PdfColor pdfColor, pw.Font font) {
       ),
 
       pw.Divider(thickness: 3, color: PdfColors.black),
-      pw.SizedBox(height: 4),
     ],
   );
 }

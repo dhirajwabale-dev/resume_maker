@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:resume_maker/Services/validation.dart';
 
 import '../../Controller/create_resume_controller.dart';
@@ -7,14 +8,11 @@ import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class ResumeHeaderFormWidget extends StatelessWidget with Validation {
-  const ResumeHeaderFormWidget({
-    super.key,
-    required this.controller,
-    this.flag = 0,
-  });
+  ResumeHeaderFormWidget({super.key, this.flag = 0});
 
-  final CreateResumeController controller;
   final int? flag;
+
+  final controller = Get.find<CreateResumeController>();
 
   @override
   Widget build(BuildContext context) {

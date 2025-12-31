@@ -8,10 +8,9 @@ import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class ResumeJobFormWidget extends StatelessWidget {
-  const ResumeJobFormWidget({super.key, required this.controller});
+  ResumeJobFormWidget({super.key});
 
-  final CreateResumeController controller;
-
+  final controller = Get.find<CreateResumeController>();
   @override
   Widget build(BuildContext context) {
     return Padding(
