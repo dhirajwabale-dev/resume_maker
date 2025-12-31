@@ -92,6 +92,12 @@ List<String> imageList = [
   AssetString.thirdTemp,
 ];
 
+List<String> templateList = [
+  AssetString.firstTemp,
+  AssetString.temp1,
+  AssetString.temp2,
+];
+
 void buildTemplateDialog(
   BuildContext context, {
   required CreateResumeController c,
@@ -142,7 +148,7 @@ void buildTemplateDialog(
                 height: 350.h,
                 width: 380.w,
                 child: CarouselSlider(
-                  items: imageList.map((item) {
+                  items: templateList.map((item) {
                     return ClipRRect(
                       borderRadius: BorderRadius.circular(10.r),
                       child: InteractiveViewer(

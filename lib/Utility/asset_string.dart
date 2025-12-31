@@ -7,5 +7,9 @@ class AssetString {
 
   static const String thirdTemp = "assets/images/thirdTemplate.png";
 
+  static const String temp1 = "assets/images/temp1.png";
+
+  static const String temp2 = "assets/images/temp2.png";
+
   static const String adaminaFont = "assets/fonts/Adamina-Regular.ttf";
 }
