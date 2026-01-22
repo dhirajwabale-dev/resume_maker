@@ -12,9 +12,14 @@ import 'color_container_widget.dart';
 import 'initial_template_widget.dart';
 
 class ResumePreview extends StatelessWidget {
-  const ResumePreview({super.key, required this.controller});
+  const ResumePreview({
+    super.key,
+    required this.controller,
+    required this.flag,
+  });
 
   final CreateResumeController controller;
+  final int flag;
   @override
   Widget build(BuildContext context) {
     final isMobile = ResponsiveUi.isMobile(context);
@@ -59,16 +64,16 @@ class ResumePreview extends StatelessWidget {
 
     switch (selectedIndex) {
       case 0:
-        return FirstTemplateWidget(controller: controller);
+        return FirstTemplateWidget(controller: controller, flag: flag);
 
       case 1:
-        return SecondTemplateWidget(controller: controller);
+        return SecondTemplateWidget(controller: controller, flag: flag);
 
       case 2:
-        return ThirdTemplateWidget(controller: controller);
+        return ThirdTemplateWidget(controller: controller, flag: flag);
 
       default:
-        return InitialTemplateWidget(controller: controller);
+        return InitialTemplateWidget(controller: controller, flag: flag);
     }
   }
 }

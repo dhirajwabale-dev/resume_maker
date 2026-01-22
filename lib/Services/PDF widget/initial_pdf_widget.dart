@@ -8,13 +8,14 @@ List<pw.Widget> initialPdfWidget(
   pw.Context context, {
   required CreateResumeController controller,
   required PdfColor pdfColor,
+  required int flag,
 }) {
   return [
     buildHeader(controller, pdfColor),
     sectionTitle(controller, pdfColor),
-    buildExperienceWidget(controller, pdfColor),
+    if (flag == 0) buildExperienceWidget(controller, pdfColor),
     buildEucationWidget(controller, pdfColor),
-    buildProjectWidget(controller, pdfColor),
+    if (flag == 0) buildProjectWidget(controller, pdfColor),
     buildSkillData(controller, pdfColor),
     buildLangaugeData(controller, pdfColor),
     buildSocialMedia(controller, pdfColor),

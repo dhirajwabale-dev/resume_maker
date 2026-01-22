@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../Routes/routes_name.dart';
 import '../Services/responsive_ui.dart';
+import '../Utility/arguments.dart';
 import '../Utility/btn_name_string.dart';
 import '../Utility/string_constant.dart';
 import '../Utility/utils.dart';
@@ -79,16 +80,23 @@ class HomeScreen extends StatelessWidget {
               commonFirstText(),
               SizedBox(height: 20.h),
               ElevatedButton(
-                onPressed: () => Get.toNamed(RoutesName.createResumeScreen),
+                onPressed: () => Get.toNamed(
+                  RoutesName.createResumeScreen,
+                  arguments: CreateResumeArgument(flag: 0),
+                ),
                 child: Text(BtnNameString.createResume),
               ),
 
-              // SizedBox(height: 10.h),
+              SizedBox(height: 12.h),
 
-              // OutlinedButton(
-              //   onPressed: () {},
-              //   child: Text(BtnNameString.optimizeResume),
-              // ),
+              ElevatedButton(
+                onPressed: () => Get.toNamed(
+                  RoutesName.createResumeScreen,
+                  arguments: CreateResumeArgument(flag: 1),
+                ),
+                child: Text(BtnNameString.fresherResume),
+              ),
+
               SizedBox(height: 10.h),
 
               _buildCarouselSlider(),
@@ -110,17 +118,22 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
-                          onPressed: () =>
-                              Get.toNamed(RoutesName.createResumeScreen),
+                          onPressed: () => Get.toNamed(
+                            RoutesName.createResumeScreen,
+                            arguments: CreateResumeArgument(flag: 0),
+                          ),
                           child: Text(BtnNameString.createResume),
                         ),
 
-                        // SizedBox(width: 8.w),
+                        SizedBox(width: 8.w),
 
-                        // OutlinedButton(
-                        //   onPressed: () {},
-                        //   child: Text(BtnNameString.optimizeResume),
-                        // ),
+                        ElevatedButton(
+                          onPressed: () => Get.toNamed(
+                            RoutesName.createResumeScreen,
+                            arguments: CreateResumeArgument(flag: 1),
+                          ),
+                          child: Text(BtnNameString.fresherResume),
+                        ),
                       ],
                     ),
                   ],

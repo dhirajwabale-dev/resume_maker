@@ -134,13 +134,13 @@ class CreateResumeController extends GetxController {
   }
 
   // Click On Continue
-  void clickOnContinue() {
+  void clickOnContinue(int flag) {
     final selectedIndex = selectedTempIndex.value;
 
     if (selectedIndex == null) {
-      initialContinueClick();
+      initialContinueClick(flag);
     } else {
-      firstContinueClick();
+      firstContinueClick(flag);
     }
   }
 
@@ -504,34 +504,11 @@ class CreateResumeController extends GetxController {
     rulesController.value.clear();
   }
 
-  String proficiencyFromCount(int count) {
-    switch (count) {
-      case 0:
-      case 1:
-        return "Novice";
-
-      case 2:
-        return "Advanced Beginner";
-
-      case 3:
-        return "Competent";
-
-      case 4:
-        return "Proficient";
-
-      case 5:
-        return "Expert";
-
-      default:
-        return "";
-    }
-  }
-
-  void createPdf() async {
+  void createPdf(int flag) async {
     try {
       isLoading.value = true;
 
-      final pdfBytes = await createBiodataPdf(this);
+      final pdfBytes = await createBiodataPdf(this, flag);
 
       if (kIsWeb) {
         // WEB: Direct download
@@ -674,104 +651,182 @@ class CreateResumeController extends GetxController {
   }
 
   //Common Continue for Initial
-  void initialContinueClick() {
-    if (continueCount.value == 0) {
-      if (!forInitialCount()) return;
-      continueCount.value++;
-      return;
-    }
+  void initialContinueClick(int flag) {
+    if (flag == 0) {
+      if (continueCount.value == 0) {
+        if (!forInitialCount()) return;
+        continueCount.value++;
+        return;
+      }
 
-    if (continueCount.value == 1) {
-      if (!forSummaryCount()) return;
-      continueCount.value++;
-      return;
-    }
+      if (continueCount.value == 1) {
+        if (!forSummaryCount()) return;
+        continueCount.value++;
+        return;
+      }
 
-    if (continueCount.value == 2) {
-      if (!forJobCount()) return;
-      continueCount.value++;
-    }
+      if (continueCount.value == 2) {
+        if (!forJobCount()) return;
+        continueCount.value++;
+      }
 
-    if (continueCount.value == 3) {
-      if (!forEducationCount()) return;
-      continueCount.value++;
-    }
+      if (continueCount.value == 3) {
+        if (!forEducationCount()) return;
+        continueCount.value++;
+      }
 
-    if (continueCount.value == 4) {
-      if (!forProjectCount()) return;
-      continueCount.value++;
-      return;
-    }
+      if (continueCount.value == 4) {
+        if (!forProjectCount()) return;
+        continueCount.value++;
+        return;
+      }
 
-    if (continueCount.value == 5) {
-      if (!forSkillCount()) return;
-      continueCount.value++;
-      return;
-    }
+      if (continueCount.value == 5) {
+        if (!forSkillCount()) return;
+        continueCount.value++;
+        return;
+      }
 
-    if (continueCount.value == 6) {
-      if (!forLangCount()) return;
-      continueCount.value++;
-    }
+      if (continueCount.value == 6) {
+        if (!forLangCount()) return;
+        continueCount.value++;
+      }
 
-    if (continueCount.value == 7) {
-      if (!forSocialCount()) return;
-      continueCount.value++;
-    }
+      if (continueCount.value == 7) {
+        if (!forSocialCount()) return;
+        continueCount.value++;
+      }
 
-    if (continueCount.value > 7) {
-      isFinalSubmit.value = true;
+      if (continueCount.value > 7) {
+        isFinalSubmit.value = true;
+      }
+    } else {
+      if (continueCount.value == 0) {
+        if (!forInitialCount()) return;
+        continueCount.value++;
+        return;
+      }
+
+      if (continueCount.value == 1) {
+        if (!forSummaryCount()) return;
+        continueCount.value++;
+        return;
+      }
+
+      if (continueCount.value == 2) {
+        if (!forEducationCount()) return;
+        continueCount.value++;
+      }
+
+      if (continueCount.value == 3) {
+        if (!forSkillCount()) return;
+        continueCount.value++;
+        return;
+      }
+
+      if (continueCount.value == 4) {
+        if (!forLangCount()) return;
+        continueCount.value++;
+      }
+
+      if (continueCount.value == 5) {
+        if (!forSocialCount()) return;
+        continueCount.value++;
+      }
+
+      if (continueCount.value > 5) {
+        isFinalSubmit.value = true;
+      }
     }
   }
 
   //Common Continue For First Template
-  void firstContinueClick() {
-    if (continueCount.value == 0) {
-      if (!forInitialCount()) return;
-      continueCount.value++;
-      return;
-    }
+  void firstContinueClick(int flag) {
+    if (flag == 0) {
+      if (continueCount.value == 0) {
+        if (!forInitialCount()) return;
+        continueCount.value++;
+        return;
+      }
 
-    if (continueCount.value == 1) {
-      if (!forSummaryCount()) return;
-      continueCount.value++;
-      return;
-    }
+      if (continueCount.value == 1) {
+        if (!forSummaryCount()) return;
+        continueCount.value++;
+        return;
+      }
 
-    if (continueCount.value == 2) {
-      if (!forSkillCount()) return;
-      continueCount.value++;
-      return;
-    }
+      if (continueCount.value == 2) {
+        if (!forSkillCount()) return;
+        continueCount.value++;
+        return;
+      }
 
-    if (continueCount.value == 3) {
-      if (!forJobCount()) return;
-      continueCount.value++;
-    }
+      if (continueCount.value == 3) {
+        if (!forJobCount()) return;
+        continueCount.value++;
+      }
 
-    if (continueCount.value == 4) {
-      if (!forEducationCount()) return;
-      continueCount.value++;
-    }
+      if (continueCount.value == 4) {
+        if (!forEducationCount()) return;
+        continueCount.value++;
+      }
 
-    if (continueCount.value == 5) {
-      if (!forProjectCount()) return;
-      continueCount.value++;
-      return;
-    }
+      if (continueCount.value == 5) {
+        if (!forProjectCount()) return;
+        continueCount.value++;
+        return;
+      }
 
-    if (continueCount.value == 6) {
-      if (!forLangCount()) return;
-      continueCount.value++;
-    }
+      if (continueCount.value == 6) {
+        if (!forLangCount()) return;
+        continueCount.value++;
+      }
 
-    if (continueCount.value == 7) {
-      if (!forSocialCount()) return;
-      continueCount.value++;
-    }
+      if (continueCount.value == 7) {
+        if (!forSocialCount()) return;
+        continueCount.value++;
+      }
 
-    if (continueCount.value > 7) {
-      isFinalSubmit.value = true;
+      if (continueCount.value > 7) {
+        isFinalSubmit.value = true;
+      }
+    } else {
+      if (continueCount.value == 0) {
+        if (!forInitialCount()) return;
+        continueCount.value++;
+        return;
+      }
+
+      if (continueCount.value == 1) {
+        if (!forSummaryCount()) return;
+        continueCount.value++;
+        return;
+      }
+
+      if (continueCount.value == 2) {
+        if (!forSkillCount()) return;
+        continueCount.value++;
+        return;
+      }
+
+      if (continueCount.value == 3) {
+        if (!forEducationCount()) return;
+        continueCount.value++;
+      }
+
+      if (continueCount.value == 4) {
+        if (!forLangCount()) return;
+        continueCount.value++;
+      }
+
+      if (continueCount.value == 5) {
+        if (!forSocialCount()) return;
+        continueCount.value++;
+      }
+
+      if (continueCount.value > 5) {
+        isFinalSubmit.value = true;
+      }
     }
   }
 }

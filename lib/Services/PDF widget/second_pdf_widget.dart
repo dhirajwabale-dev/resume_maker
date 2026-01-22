@@ -10,6 +10,7 @@ List<pw.Widget> secondPDfWidget(
   required CreateResumeController controller,
   required PdfColor pdfColor,
   required pw.Font adaminaFont,
+  required int flag,
 }) {
   final pageWidth = PdfPageFormat.a4.availableWidth;
 

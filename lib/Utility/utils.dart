@@ -218,3 +218,26 @@ Widget title(String text, {Color? color}) {
     ],
   );
 }
+
+String proficiencyFromCount(int count) {
+  switch (count) {
+    case 0:
+    case 1:
+      return "Novice";
+
+    case 2:
+      return "Advanced Beginner";
+
+    case 3:
+      return "Competent";
+
+    case 4:
+      return "Proficient";
+
+    case 5:
+      return "Expert";
+
+    default:
+      return "";
+  }
+}

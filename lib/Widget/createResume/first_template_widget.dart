@@ -9,9 +9,14 @@ import '../../Utility/app_color.dart';
 import '../../Utility/utils.dart';
 
 class FirstTemplateWidget extends StatelessWidget {
-  const FirstTemplateWidget({super.key, required this.controller});
+  const FirstTemplateWidget({
+    super.key,
+    required this.controller,
+    required this.flag,
+  });
 
   final CreateResumeController controller;
+  final int flag;
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +40,13 @@ class FirstTemplateWidget extends StatelessWidget {
             _buildSkillData(),
 
             //Experience Data
-            _buildExperienceData(),
+            if (flag == 0) _buildExperienceData(),
 
             //Education Data
             _buildEducationData(),
 
             //Project Data
-            _buildProjectData(),
+            if (flag == 0) _buildProjectData(),
 
             //Language Data
             _buildLangaugeData(),
