@@ -244,6 +244,53 @@ Widget buildTitleContainer({required String title, required Color color}) {
   );
 }
 
+List<Map<String, dynamic>> skillListData = [
+  {
+    "skill": "Flutter",
+    "proficiency": 3,
+    "tools": "Flutter SDK",
+    "other_skills": "Java",
+  },
+];
+
+List<Map<String, dynamic>> jobListData = [
+  {
+    "jobtitle": "Software Developer",
+    "employerName": "Accenture",
+    "city": "Pune",
+    "details": "Java Developer",
+    "fromDate": DateTime(2019, 6, 6),
+    "toDate": DateTime(2019, 6, 6),
+  },
+];
+
+List<Map<String, dynamic>> educationListData = [
+  {
+    "degree": "ME",
+    "university": "Pune University",
+    "city": "Pune",
+    "startDate": DateTime(2019, 6, 6),
+    "endDate": DateTime(2019, 6, 6),
+  },
+];
+
+List<Map<String, dynamic>> langListData = [
+  {"lang": "English", "proficiency": 3},
+];
+
+List<String> socialListData = ["www:https//google.com"];
+
+List<Map<String, dynamic>> priojectListData = [
+  {
+    "projectName": "Bussiness App",
+    "duration": "3 Months",
+    "technology": "Java Spring boot",
+    "overview": "",
+    "feature": "",
+    "rules": "",
+  },
+];
+
 String proficiencyFromCount(int count) {
   switch (count) {
     case 0:

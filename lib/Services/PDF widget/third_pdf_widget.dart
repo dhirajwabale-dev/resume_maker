@@ -9,6 +9,7 @@ List<pw.Widget> thirdPDfWidget(
   required CreateResumeController controller,
   required PdfColor pdfColor,
   required pw.Font adaminaFont,
+  required int flag,
 }) {
   return [
     buildHeader(controller, pdfColor, adaminaFont),

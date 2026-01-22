@@ -56,6 +56,7 @@ Future<Uint8List> createBiodataPdf(
             controller: controller,
             flag: flag,
             pdfColor: pdfColor,
+            adaminaFont: adaminaFont,
           );
         }
       },

@@ -18,7 +18,6 @@ import '../Widget/createResume/resume_skills_widget.dart';
 import '../Widget/createResume/resume_social_media_widget.dart';
 import '../Widget/createResume/resume_summary_widget.dart';
 import '../Widget/general_safe_area_widget.dart';
-import '../Widget/logger.dart';
 import '../Widget/progress_indicator_widget.dart';
 
 class CreateResumeScreen extends StatelessWidget {
@@ -200,46 +199,44 @@ class CreateResumeScreen extends StatelessWidget {
           ? Column(
               children: [
                 //Header Resume Part
-                if (count == 0) ResumeHeaderFormWidget(controller: controller),
+                if (count == 0) ResumeHeaderFormWidget(),
 
                 //Summary Resume Part
-                if (count == 1) ResumeSummaryWidget(controller: controller),
+                if (count == 1) ResumeSummaryWidget(),
 
                 //Education Resume Part
-                if (count == 2)
-                  ResumeEducationFormWidget(controller: controller),
+                if (count == 2) ResumeEducationFormWidget(),
 
                 //Skills Resume Part
-                if (count == 3) ResumeSkillsWidget(controller: controller),
+                if (count == 3) ResumeSkillsWidget(),
 
                 //Language Resume Part
-                if (count == 4) ResumeLangFormWidget(controller: controller),
+                if (count == 4) ResumeLangFormWidget(),
 
                 //Socia Media Resume Part
-                if (count == 5) ResumeSocialMediaWidget(controller: controller),
+                if (count == 5) ResumeSocialMediaWidget(),
               ],
             )
           : Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 //Header Resume Part
-                if (count == 0) ResumeHeaderFormWidget(controller: controller),
+                if (count == 0) ResumeHeaderFormWidget(),
 
                 //Summary Resume Part
-                if (count == 1) ResumeSummaryWidget(controller: controller),
+                if (count == 1) ResumeSummaryWidget(),
 
                 //Skills Resume Part
-                if (count == 2) ResumeSkillsWidget(controller: controller),
+                if (count == 2) ResumeSkillsWidget(),
 
                 //Education Resume Part
-                if (count == 3)
-                  ResumeEducationFormWidget(controller: controller),
+                if (count == 3) ResumeEducationFormWidget(),
 
                 //Language Resume Part
-                if (count == 4) ResumeLangFormWidget(controller: controller),
+                if (count == 4) ResumeLangFormWidget(),
 
                 //Socia Media Resume Part
-                if (count == 5) ResumeSocialMediaWidget(controller: controller),
+                if (count == 5) ResumeSocialMediaWidget(),
 
                 SizedBox(height: 20.h),
               ],
@@ -251,17 +248,16 @@ class CreateResumeScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               //Header Resume Part
-              if (count == 0) ResumeHeaderFormWidget(controller: controller),
-
-    switch (selectedIndex) {
-      case 0:
-      case 1:
-        return firstCase(count);
-      case 2:
-        return secondCase(count);
-      default:
-        return initialCase(count);
-    }
+              if (count == 0) ResumeHeaderFormWidget(),
+            ],
+          )
+        : Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              //Header Resume Part
+              if (count == 0) ResumeHeaderFormWidget(),
+            ],
+          );
   }
 
   Widget _buildworkinPageWidget(bool isMobile) {
