@@ -8,6 +8,7 @@ import '../Controller/create_resume_controller.dart';
 import '../Services/responsive_ui.dart';
 import '../Utility/app_color.dart';
 import '../Widget/common_app_bar_widget.dart';
+import '../Widget/createResume/cont_back_btn_widget.dart';
 import '../Widget/createResume/resume_education_form_widget.dart';
 import '../Widget/createResume/resume_header_form_widget.dart';
 import '../Widget/createResume/resume_job_form_widget.dart';
@@ -51,38 +52,16 @@ class CreateResumeScreen extends StatelessWidget {
                             _buildCommonTextFields(count),
 
                             //BACK AND CONTINUE BTN
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 20.w,
-                                vertical: 10.h,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  OutlinedButton(
-                                    onPressed: controller.clickOnBack,
-                                    child: Text("Back"),
-                                  ),
-
-                                  (controller.isFinalSubmit.value)
-                                      ? ElevatedButton(
-                                          onPressed: () {
-                                            Get.to(
-                                              () => PreviewScreen(
-                                                controller: controller,
-                                                flag: flag,
-                                              ),
-                                            );
-                                          },
-                                          child: Text("preview"),
-                                        )
-                                      : ElevatedButton(
-                                          onPressed: () =>
-                                              controller.clickOnContinue(flag),
-                                          child: Text("Continue"),
-                                        ),
-                                ],
+                            ContBackBtnWidget(
+                              isPreview: controller.isFinalSubmit.value,
+                              onBackPress: () => controller.clickOnBack(),
+                              onContinuePress: () =>
+                                  controller.clickOnContinue(flag),
+                              onPreviewPress: () => Get.to(
+                                () => PreviewScreen(
+                                  controller: controller,
+                                  flag: flag,
+                                ),
                               ),
                             ),
 
@@ -139,38 +118,16 @@ class CreateResumeScreen extends StatelessWidget {
                                   ),
 
                                   //BACK AND CONTINUE BTN
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 20.w,
-                                      vertical: 10.h,
-                                    ),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        OutlinedButton(
-                                          onPressed: controller.clickOnBack,
-                                          child: Text("Back"),
-                                        ),
-
-                                        (controller.isFinalSubmit.value)
-                                            ? ElevatedButton(
-                                                onPressed: () {
-                                                  Get.to(
-                                                    () => PreviewScreen(
-                                                      controller: controller,
-                                                      flag: flag,
-                                                    ),
-                                                  );
-                                                },
-                                                child: Text("preview"),
-                                              )
-                                            : ElevatedButton(
-                                                onPressed: () => controller
-                                                    .clickOnContinue(flag),
-                                                child: Text("Continue"),
-                                              ),
-                                      ],
+                                  ContBackBtnWidget(
+                                    isPreview: controller.isFinalSubmit.value,
+                                    onBackPress: () => controller.clickOnBack(),
+                                    onContinuePress: () =>
+                                        controller.clickOnContinue(flag),
+                                    onPreviewPress: () => Get.to(
+                                      () => PreviewScreen(
+                                        controller: controller,
+                                        flag: flag,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -195,69 +152,10 @@ class CreateResumeScreen extends StatelessWidget {
 
     //For Fresher
     if (flag == 1) {
-      return (selectedIndex == null)
-          ? Column(
-              children: [
-                //Header Resume Part
-                if (count == 0) ResumeHeaderFormWidget(),
-
-                //Summary Resume Part
-                if (count == 1) ResumeSummaryWidget(),
-
-                //Education Resume Part
-                if (count == 2) ResumeEducationFormWidget(),
-
-                //Skills Resume Part
-                if (count == 3) ResumeSkillsWidget(),
-
-                //Language Resume Part
-                if (count == 4) ResumeLangFormWidget(),
-
-                //Socia Media Resume Part
-                if (count == 5) ResumeSocialMediaWidget(),
-              ],
-            )
-          : Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                //Header Resume Part
-                if (count == 0) ResumeHeaderFormWidget(),
-
-                //Summary Resume Part
-                if (count == 1) ResumeSummaryWidget(),
-
-                //Skills Resume Part
-                if (count == 2) ResumeSkillsWidget(),
-
-                //Education Resume Part
-                if (count == 3) ResumeEducationFormWidget(),
-
-                //Language Resume Part
-                if (count == 4) ResumeLangFormWidget(),
-
-                //Socia Media Resume Part
-                if (count == 5) ResumeSocialMediaWidget(),
-
-                SizedBox(height: 20.h),
-              ],
-            );
+      return (selectedIndex == null) ? initialCase(count) : firstCase(count);
     }
 
-    return (selectedIndex == null)
-        ? Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              //Header Resume Part
-              if (count == 0) ResumeHeaderFormWidget(),
-            ],
-          )
-        : Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              //Header Resume Part
-              if (count == 0) ResumeHeaderFormWidget(),
-            ],
-          );
+    return (selectedIndex == null) ? initialCase(count) : firstCase(count);
   }
 
   Widget _buildworkinPageWidget(bool isMobile) {
@@ -297,12 +195,16 @@ class CreateResumeScreen extends StatelessWidget {
                   //For Fresher Candidates
                   if (flag == 1) ...[
                     _buildCircularWidget(0),
-                    _buildStraightHoriLine(1),
+                    _buildStraightLine(1),
                     _buildCircularWidget(1),
-                    _buildStraightHoriLine(2),
+                    _buildStraightLine(2),
                     _buildCircularWidget(2),
-                    _buildStraightHoriLine(3),
+                    _buildStraightLine(3),
                     _buildCircularWidget(3),
+                    _buildStraightLine(4),
+                    _buildCircularWidget(4),
+                    _buildStraightLine(5),
+                    _buildCircularWidget(5),
                   ],
                 ],
               ),
@@ -419,6 +321,30 @@ class CreateResumeScreen extends StatelessWidget {
   }
 
   Widget initialCase(int count) {
+    //For Fresher Candidate
+    if (flag == 1) {
+      return Column(
+        children: [
+          //Header Resume Part
+          if (count == 0) ResumeHeaderFormWidget(),
+
+          //Summary Resume Part
+          if (count == 1) ResumeSummaryWidget(),
+
+          //Education Resume Part
+          if (count == 2) ResumeEducationFormWidget(),
+
+          //Skills Resume Part
+          if (count == 3) ResumeSkillsWidget(),
+
+          //Language Resume Part
+          if (count == 4) ResumeLangFormWidget(),
+
+          //Socia Media Resume Part
+          if (count == 5) ResumeSocialMediaWidget(),
+        ],
+      );
+    }
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -452,6 +378,34 @@ class CreateResumeScreen extends StatelessWidget {
   }
 
   Widget firstCase(int count) {
+    //For Fresher Candidate
+    if (flag == 1) {
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          //Header Resume Part
+          if (count == 0) ResumeHeaderFormWidget(),
+
+          //Summary Resume Part
+          if (count == 1) ResumeSummaryWidget(),
+
+          //Skills Resume Part
+          if (count == 2) ResumeSkillsWidget(),
+
+          //Education Resume Part
+          if (count == 3) ResumeEducationFormWidget(),
+
+          //Language Resume Part
+          if (count == 4) ResumeLangFormWidget(),
+
+          //Socia Media Resume Part
+          if (count == 5) ResumeSocialMediaWidget(),
+
+          SizedBox(height: 20.h),
+        ],
+      );
+    }
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

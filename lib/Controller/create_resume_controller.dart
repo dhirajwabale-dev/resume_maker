@@ -141,7 +141,7 @@ class CreateResumeController extends GetxController {
   void clickOnContinue(int flag) {
     final selectedIndex = selectedTempIndex.value;
 
-    Logger.logData("Selected Index:$selectedIndex");
+    Logger.logData("Selected Index : $selectedIndex && Count :$continueCount");
 
     if (selectedIndex == null) {
       initialContinueClick(flag);
@@ -728,11 +728,13 @@ class CreateResumeController extends GetxController {
       if (continueCount.value == 2) {
         if (!forJobCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 3) {
         if (!forEducationCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 4) {
@@ -750,11 +752,13 @@ class CreateResumeController extends GetxController {
       if (continueCount.value == 6) {
         if (!forLangCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 7) {
         if (!forSocialCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value > 7) {
@@ -776,6 +780,7 @@ class CreateResumeController extends GetxController {
       if (continueCount.value == 2) {
         if (!forEducationCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 3) {
@@ -787,11 +792,13 @@ class CreateResumeController extends GetxController {
       if (continueCount.value == 4) {
         if (!forLangCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 5) {
         if (!forSocialCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value > 5) {
@@ -824,11 +831,13 @@ class CreateResumeController extends GetxController {
       if (continueCount.value == 3) {
         if (!forJobCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 4) {
         if (!forEducationCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 5) {
@@ -840,11 +849,13 @@ class CreateResumeController extends GetxController {
       if (continueCount.value == 6) {
         if (!forLangCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 7) {
         if (!forSocialCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value > 7) {
@@ -872,16 +883,19 @@ class CreateResumeController extends GetxController {
       if (continueCount.value == 3) {
         if (!forEducationCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 4) {
         if (!forLangCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value == 5) {
         if (!forSocialCount()) return;
         continueCount.value++;
+        return;
       }
 
       if (continueCount.value > 5) {
