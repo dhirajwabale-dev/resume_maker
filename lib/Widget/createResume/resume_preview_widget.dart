@@ -11,10 +11,14 @@ import 'second_template_widget.dart';
 import 'third_template_widget.dart';
 
 class ResumePreview extends StatelessWidget {
-  ResumePreview({super.key});
+  const ResumePreview({
+    super.key,
+    required this.controller,
+    required this.flag,
+  });
 
-  final controller = Get.find<CreateResumeController>();
-
+  final CreateResumeController controller;
+  final int flag;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -57,16 +61,16 @@ class ResumePreview extends StatelessWidget {
 
     switch (selectedIndex) {
       case 0:
-        return FirstTemplateWidget();
+        return FirstTemplateWidget(controller: controller, flag: flag);
 
       case 1:
-        return SecondTemplateWidget();
+        return SecondTemplateWidget(controller: controller, flag: flag);
 
       case 2:
-        return ThirdTemplateWidget();
+        return ThirdTemplateWidget(controller: controller, flag: flag);
 
       default:
-        return InitialTemplateWidget();
+        return InitialTemplateWidget(controller: controller, flag: flag);
     }
   }
 }

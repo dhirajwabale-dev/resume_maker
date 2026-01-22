@@ -8,6 +8,7 @@ import '../UI/home_screen.dart';
 import '../UI/privacy_policy_screen.dart';
 import '../UI/splash_screen.dart';
 import '../UI/term_and_consition_screen.dart';
+import '../Utility/arguments.dart';
 import 'routes_name.dart';
 
 class RouteGenerator {
@@ -64,15 +65,12 @@ class RouteGenerator {
     //-----------------Create Resume Screen-----------------//
     GetPage(
       name: RoutesName.createResumeScreen,
-      page: () => CreateResumeScreen(),
+
+      page: () {
+        final args = Get.arguments as CreateResumeArgument;
+        return CreateResumeScreen(flag: args.flag);
+      },
       transition: Transition.leftToRightWithFade,
     ),
-
-    // //-----------------Preview Resume Screen-----------------//
-    // GetPage(
-    //   name: RoutesName.previewScreen,
-    //   page: () => const PreviewScreen(),
-    //   transition: Transition.leftToRightWithFade,
-    // ),
   ];
 }

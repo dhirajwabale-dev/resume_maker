@@ -8,7 +8,10 @@ import 'PDF widget/first_pdf_widget.dart';
 import 'PDF widget/initial_pdf_widget.dart';
 import 'PDF widget/third_pdf_widget.dart';
 
-Future<Uint8List> createBiodataPdf(CreateResumeController controller) async {
+Future<Uint8List> createBiodataPdf(
+  CreateResumeController controller,
+  int flag,
+) async {
   final pdf = pw.Document();
 
   final PdfColor pdfColor = toPdfColor(controller.selectedColor.value);
@@ -27,6 +30,7 @@ Future<Uint8List> createBiodataPdf(CreateResumeController controller) async {
           return firstPDfWidget(
             context,
             controller: controller,
+            flag: flag,
             pdfColor: pdfColor,
             adaminaFont: adaminaFont,
           );
@@ -35,18 +39,22 @@ Future<Uint8List> createBiodataPdf(CreateResumeController controller) async {
             context,
             controller: controller,
             pdfColor: pdfColor,
+            flag: flag,
+            adaminaFont: adaminaFont,
           );
         } else if (selectedTemp == 2) {
           return thirdPDfWidget(
             context,
             controller: controller,
             pdfColor: pdfColor,
+            flag: flag,
             adaminaFont: adaminaFont,
           );
         } else {
           return initialPdfWidget(
             context,
             controller: controller,
+            flag: flag,
             pdfColor: pdfColor,
           );
         }

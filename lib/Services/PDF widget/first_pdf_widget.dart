@@ -8,6 +8,7 @@ List<pw.Widget> firstPDfWidget(
   pw.Context context, {
   required CreateResumeController controller,
   required PdfColor pdfColor,
+  required int flag,
   required pw.Font adaminaFont,
 }) {
   return [
@@ -17,12 +18,19 @@ List<pw.Widget> firstPDfWidget(
     pw.SizedBox(height: 10),
     buildSkillData(controller, pdfColor, adaminaFont),
     pw.SizedBox(height: 10),
-    buildExperienceWidget(controller, pdfColor, adaminaFont),
-    pw.SizedBox(height: 10),
+    if (flag == 0) ...[
+      buildExperienceWidget(controller, pdfColor, adaminaFont),
+      pw.SizedBox(height: 10),
+    ],
+
     buildEucationWidget(controller, pdfColor, adaminaFont),
     pw.SizedBox(height: 10),
-    buildProjectWidget(controller, pdfColor, adaminaFont),
-    pw.SizedBox(height: 10),
+
+    if (flag == 0) ...[
+      buildProjectWidget(controller, pdfColor, adaminaFont),
+      pw.SizedBox(height: 10),
+    ],
+
     buildLangaugeData(controller, pdfColor, adaminaFont),
     pw.SizedBox(height: 10),
     buildSocialMedia(controller, pdfColor, adaminaFont),
