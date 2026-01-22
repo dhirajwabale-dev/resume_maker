@@ -67,8 +67,8 @@ class RouteGenerator {
       name: RoutesName.createResumeScreen,
 
       page: () {
-        final args = Get.arguments as CreateResumeArgument;
-        return CreateResumeScreen(flag: args.flag);
+        final args = Get.arguments as CreateResumeArgument?;
+        return CreateResumeScreen(flag: args?.flag ?? 0);
       },
       transition: Transition.leftToRightWithFade,
     ),
